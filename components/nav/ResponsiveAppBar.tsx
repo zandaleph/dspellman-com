@@ -12,7 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import Link from "../Link";
 
-const pages = [{ title: "About", href: "/about" }];
+const pages = [
+  { title: "Game", href: "/eggplant-nightmare" },
+  { title: "About", href: "/about" },
+];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState<HTMLElement | undefined>();
