@@ -1,3 +1,5 @@
+'use client';
+
 import { FunctionComponent } from "react";
 import { type Game } from "phaser";
 import { useEffect, useState, useRef } from "react";

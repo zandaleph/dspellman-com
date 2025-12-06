@@ -1,6 +1,8 @@
+'use client';
+
 import * as React from "react";
 import clsx from "clsx";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import MuiLink, { LinkProps as MuiLinkProps } from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
@@ -26,28 +28,21 @@ export const NextLinkComposed = React.forwardRef<
   const {
     to,
     linkAs,
-    href,
     replace,
     scroll,
-    shallow,
     prefetch,
-    locale,
     ...other
   } = props;
 
   return (
     <NextLink
       href={to}
-      prefetch={prefetch}
-      as={linkAs}
       replace={replace}
       scroll={scroll}
-      shallow={shallow}
-      passHref
-      locale={locale}
-    >
-      <Anchor ref={ref} {...other} />
-    </NextLink>
+      prefetch={prefetch}
+      ref={ref}
+      {...other}
+    />
   );
 });
 
@@ -76,10 +71,10 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
     ...other
   } = props;
 
-  const router = useRouter();
-  const pathname = typeof href === "string" ? href : href.pathname;
+  const pathname = usePathname();
+  const hrefPath = typeof href === "string" ? href : href.pathname;
   const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === pathname && activeClassName,
+    [activeClassName]: pathname === hrefPath && activeClassName,
   });
 
   const isExternal =

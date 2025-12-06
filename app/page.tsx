@@ -1,8 +1,7 @@
 import * as React from "react";
-import type { NextPage } from "next";
 import Typography from "@mui/material/Typography";
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <>
       <Typography variant="h3" component="h1" gutterBottom>
@@ -11,6 +10,4 @@ const Home: NextPage = () => {
       <Typography variant="body1">Site under construction.</Typography>
     </>
   );
-};
-
-export default Home;
+}

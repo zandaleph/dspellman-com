@@ -1,5 +1,4 @@
 import * as React from "react";
-import type { NextPage } from "next";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Avatar from "@mui/material/Avatar";
 import BuildIcon from "@mui/icons-material/Build";
@@ -32,7 +31,7 @@ const AboutItem: React.FunctionComponent<AboutItemProps> = (props) => {
   );
 };
 
-const About: NextPage = () => {
+export default function About() {
   return (
     <>
       <Typography variant="h3" component="h1" gutterBottom>
@@ -66,6 +65,4 @@ const About: NextPage = () => {
       </List>
     </>
   );
-};
-
-export default About;
+}

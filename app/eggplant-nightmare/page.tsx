@@ -1,7 +1,8 @@
+'use client';
+
 import Typography from "@mui/material/Typography";
-import { NextPage } from "next/types";
 import { type Scene } from "phaser";
-import PhaserComponent from "../components/phaser/PhaserComponent";
+import PhaserComponent from "../../components/phaser/PhaserComponent";
 
 function preloadScene(this: Scene) {
   this.load.image("player", "https://i.imgur.com/i2fxxTK.png");
@@ -82,7 +83,7 @@ const config: Phaser.Types.Core.GameConfig = {
   },
 };
 
-const EggplantNightmare: NextPage = () => {
+export default function EggplantNightmare() {
   return (
     <>
       <Typography variant="h3" component="h1" gutterBottom>
@@ -91,6 +92,4 @@ const EggplantNightmare: NextPage = () => {
       <PhaserComponent config={config} />
     </>
   );
-};
-
-export default EggplantNightmare;
+}
